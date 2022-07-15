@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:aop="http://www.springframework.org/schema/aop"
@@ -29,4 +30,16 @@
 
     <alias name="customImportService" alias="importService"/>
     <bean id="customImportService" class="com.epam.training.service.impl.CustomImportServiceImpl" parent="defaultImportService" />
+
+    <bean id="customUserPopulator" class="com.epam.training.facade.populator.CustomUserPopulator"/>
+
+    <alias name="customUserConverter" alias="customUserConverter" />
+    <bean id="customUserConverter" parent="abstractPopulatingConverter">
+        <property name="targetClass" value="com.epam.trainingextension.dto.UserData"/>
+        <property name="populators">
+            <list>
+                <ref bean="customUserPopulator"/>
+            </list>
+        </property>
+    </bean>
 </beans>

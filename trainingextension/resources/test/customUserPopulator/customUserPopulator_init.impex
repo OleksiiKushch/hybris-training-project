@@ -1,0 +1,4 @@
+$dateTimeFormat = dd.MM.yyyy hh:mm:ss
+
+INSERT_UPDATE User ; uid[unique = true] ; name ; creationtime[dateformat=$dateTimeFormat]
+                   ; alex@gmail.com     ; Alex ; 12.07.2022 09:21:19
