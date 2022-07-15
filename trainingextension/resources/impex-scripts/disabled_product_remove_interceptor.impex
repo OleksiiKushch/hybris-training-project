@@ -1,0 +1,4 @@
+REMOVE Product[disable.interceptor.beans='productRemoveInterceptor']; pk[unique = true]
+                                                                    ; 8796093054977
+
+

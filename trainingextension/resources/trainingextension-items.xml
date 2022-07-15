@@ -41,5 +41,15 @@
 				</attribute>
 			</attributes>
 		</itemtype>
+
+		<itemtype code="MyCustomer" extends="Customer" autocreate="true" generate="true">
+			<attributes>
+				<attribute qualifier="sendToEmail" type="boolean">
+					<modifiers read="true" write="true" search="true"/>
+					<persistence type="property"/>
+					<defaultvalue>false</defaultvalue>
+				</attribute>
+			</attributes>
+		</itemtype>
 	</itemtypes>
 </items>

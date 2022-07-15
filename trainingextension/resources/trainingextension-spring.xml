@@ -42,4 +42,9 @@
             </list>
         </property>
     </bean>
+
+    <bean id="sedEmailToCustomerEventListener"
+          class="com.epam.training.listener.SendEmailToCustomerEventListener"
+          parent="abstractEventListener">
+    </bean>
 </beans>

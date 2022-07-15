@@ -1,0 +1,2 @@
+INSERT_UPDATE MyCustomer ; uid[unique = true]
+                         ; alex@hybhub.com
