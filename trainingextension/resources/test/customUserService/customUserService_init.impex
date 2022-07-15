@@ -1,0 +1,13 @@
+INSERT_UPDATE User ; uid[unique = true] ; name   ; defaultShipmentAddress(&addrID) ; defaultPaymentAddress(&addrID)
+                   ; andrew@hybhub.com  ; Andrew ; addr1                           ; addr2
+                   ; victor@gmail.com   ; Victor ;                                 ; addr3
+                   ; riko@epam.com      ; Riko   ; addr4                           ;
+                   ; artur@gmail.com    ; Artur  ;                                 ;
+                   ; bobber@hybhub.com  ; Bobber ;                                 ;
+
+INSERT Address ; &addrID ; owner(User.uid)   ;
+               ; addr1   ; andrew@hybhub.com ;
+               ; addr2   ; andrew@hybhub.com ;
+               ; addr3   ; victor@gmail.com  ;
+               ; addr4   ; riko@epam.com     ;
+               ; addr5   ; artur@gmail.com   ;
