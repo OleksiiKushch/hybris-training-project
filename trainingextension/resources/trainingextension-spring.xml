@@ -89,5 +89,8 @@
         <property name="mediaService" ref="mediaService"/>
         <property name="flexibleSearchService" ref="flexibleSearchService"/>
     </bean>
-			
+
+    <alias name="customProductDao" alias="productDao" />
+    <bean id="customProductDao" class="com.epam.training.dao.impl.CustomProductDaoImpl" parent="defaultProductDao" />
+
 </beans>

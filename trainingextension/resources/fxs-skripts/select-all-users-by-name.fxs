@@ -1,0 +1,3 @@
+-- Select all Users where name starts with 'Iv' (do not include User subtypes in results, i.e. Customer, Employee etc).
+
+SELECT * FROM {User! AS u} WHERE {u:name} LIKE 'Iv%'

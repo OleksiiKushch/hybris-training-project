@@ -1,0 +1,8 @@
+-- Select all Customers that have addresses with town 'Kharkiv'.
+
+SELECT * FROM
+{
+    Customer AS c JOIN Address AS a
+    ON {c:defaultShipmentAddress} = {a:pk}
+}
+WHERE {a:town}='Kharkiv'

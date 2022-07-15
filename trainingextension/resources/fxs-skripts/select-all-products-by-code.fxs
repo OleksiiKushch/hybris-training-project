@@ -1,0 +1,6 @@
+-- Select all products form productCatalog:Online catalog where product code contains letter 'a'.
+
+SELECT * FROM {
+    Product AS p JOIN CatalogVersion AS cv ON {p:catalogVersion} = {cv:pk}
+}
+WHERE {p:code} LIKE '%a%' AND {cv:version} = 'Online'
