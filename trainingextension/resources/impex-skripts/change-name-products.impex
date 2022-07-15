@@ -1,0 +1,9 @@
+# update all products from productCatalog:Staged change their names to "test"
+
+$productCatalog=Default
+$catalogVersion=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])
+
+UPDATE Product[batchmode=true];$catalogVersion[unique=true];name
+;;test;
+
+

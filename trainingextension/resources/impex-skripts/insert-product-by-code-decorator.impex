@@ -1,0 +1,8 @@
+# make Product.code lowercase and without spaces
+
+$decoratorPath=com.epam.training.decorator.ProductCodeCSVCellDecorator
+
+INSERT Product;code[unique=true][cellDecorator=$decoratorPath];
+;Test product;
+
+
