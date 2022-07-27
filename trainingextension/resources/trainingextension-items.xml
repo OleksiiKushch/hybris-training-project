@@ -62,5 +62,46 @@
 		</itemtype>
 
 		<itemtype code="ThrowExceptionCronJob" extends="CronJob" autocreate="true" generate="true"/>
+
+		<itemtype code="Supplier" extends="GenericItem" autocreate="true" generate="true">
+			<deployment table="suppliers" typecode="20351"/>
+			<custom-properties>
+				<property name="catalogItemType">
+					<value>java.lang.Boolean.TRUE</value>
+				</property>
+				<property name="catalogVersionAttributeQualifier">
+					<value>"catalogVersion"</value>
+				</property>
+				<property name="uniqueKeyAttributeQualifier">
+					<value>"code"</value>
+				</property>
+			</custom-properties>
+			<attributes>
+				<attribute qualifier="code" type="java.lang.String">
+					<modifiers read="true" write="true" search="true" optional="false" unique="true"/>
+					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="name" type="java.lang.String">
+					<modifiers read="true" write="true" search="true" optional="false"/>
+					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="description" type="localized:java.lang.String">
+					<modifiers read="true" write="true" search="true"/>
+					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="catalogVersion" type="CatalogVersion">
+					<modifiers read="true" write="true" search="true" optional="false" unique="true"/>
+					<persistence type="property"/>
+				</attribute>
+			</attributes>
+			<indexes>
+				<index name="codeIDX" unique="false">
+					<key attribute="code"/>
+				</index>
+				<index name="versionIDX" unique="false">
+					<key attribute="catalogVersion"/>
+				</index>
+			</indexes>
+		</itemtype>
 	</itemtypes>
 </items>

@@ -1,0 +1,19 @@
+$defaultPassword=1234
+$contentCatalog=Default
+$syncJob=Sync $contentCatalog:Staged -> $contentCatalog:Online
+
+INSERT_UPDATE UserGroup ; uid[unique=true]     ; groups(uid)[mode=append] ; name                   ; backOfficeLoginDisabled[default=false]
+                        ; categorymanagergroup ; employeegroup            ; Category manager group
+
+INSERT_UPDATE Employee ; uid[unique=true]        ; password[default=$defaultPassword] ; description                                              ; name ; groups(uid)[mode=append] ; backOfficeLoginDisabled ; sessionLanguage(isocode) ; sessionCurrency(isocode)
+                       ; categorymanagerEmployee ;                                    ; Able to synchronize only Category type in productcockpit ; Bob  ; categorymanagergroup     ; false                   ; en                       ; EUR
+
+$START_USERRIGHTS
+Type      ; UID                  ; MemberOfGroups ; Password ; Target   ; read ; change ; create ; remove ; change_perm
+UserGroup ; categorymanagergroup ; employeegroup  ;          ;          ;      ;        ;        ;        ;
+          ;                      ;                ;          ; Category ; +    ; +      ; +      ; +      ; -
+          ;                      ;                ;          ; Product  ; +    ; -      ; -      ; -      ; -
+$END_USERRIGHTS
+
+INSERT_UPDATE CatalogVersionSyncJob ; code[unique=true] ; syncPrincipals(uid)[mode=append] ; syncPrincipalsOnly
+                                    ; $syncJob          ; categorymanagergroup             ; true

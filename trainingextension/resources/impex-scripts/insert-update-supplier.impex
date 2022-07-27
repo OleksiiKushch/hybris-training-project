@@ -1,0 +1,6 @@
+$productCatalog=Default
+$catalogVersion=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])
+
+INSERT_UPDATE Supplier ; code[unique=true] ; name     ; description     ; $catalogVersion
+                       ; 3552355           ; E-Reader ; Supplier e-book
+

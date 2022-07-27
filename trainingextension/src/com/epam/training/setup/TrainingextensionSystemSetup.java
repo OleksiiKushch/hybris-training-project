@@ -10,34 +10,32 @@
  */
 package com.epam.training.setup;
 
-import static com.epam.training.constants.TrainingextensionConstants.PLATFORM_LOGO_CODE;
-
+import com.epam.training.constants.TrainingextensionConstants;
+import com.epam.training.service.TrainingextensionService;
 import de.hybris.platform.core.initialization.SystemSetup;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.InputStream;
 
-import com.epam.training.constants.TrainingextensionConstants;
-import com.epam.training.service.TrainingextensionService;
+import static com.epam.training.constants.TrainingextensionConstants.PLATFORM_LOGO_CODE;
 
 
 @SystemSetup(extension = TrainingextensionConstants.EXTENSIONNAME)
-public class TrainingextensionSystemSetup
-{
+public class TrainingextensionSystemSetup {
+	private static final Logger LOG = LoggerFactory.getLogger(TrainingextensionSystemSetup.class);
 	private final TrainingextensionService trainingextensionService;
 
-	public TrainingextensionSystemSetup(final TrainingextensionService trainingextensionService)
-	{
+	public TrainingextensionSystemSetup(final TrainingextensionService trainingextensionService) {
 		this.trainingextensionService = trainingextensionService;
 	}
 
 	@SystemSetup(process = SystemSetup.Process.INIT, type = SystemSetup.Type.ESSENTIAL)
-	public void createEssentialData()
-	{
+	public void createEssentialData() {
 		trainingextensionService.createLogo(PLATFORM_LOGO_CODE);
 	}
 
-	private InputStream getImageStream()
-	{
+	private InputStream getImageStream()  {
 		return TrainingextensionSystemSetup.class.getResourceAsStream("/trainingextension/sap-hybris-platform.png");
 	}
 }

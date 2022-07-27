@@ -1,0 +1,10 @@
+$catalog=Default
+$syncJob=Sync $catalog:Staged -> $catalog:Online
+
+$type=Supplier
+
+INSERT_UPDATE CatalogVersionSyncJob ; code[unique=true] ; rootTypes(code)[mode=append]
+                                    ; $syncJob          ; $type
+
+INSERT_UPDATE SyncAttributeDescriptorConfig ; syncJob(code)[unique=true,path-delimiter=!] ; attributeDescriptor(enclosingType(code),qualifier)[unique=true] ; includedInSync ; copyByValue
+                                            ; $syncJob                                    ; $type:description                                               ; false          ; false
