@@ -47,4 +47,14 @@
           class="com.epam.training.listener.SendEmailToCustomerEventListener"
           parent="abstractEventListener">
     </bean>
+
+    <bean id="impexUploadJob" class="com.epam.training.cronJob.ImpexUploadJob" parent="abstractJobPerformable">
+        <property name="customImportService" ref="customImportService"/>
+    </bean>
+
+    <bean id="throwExceptionJob" class="com.epam.training.cronJob.ThrowExceptionJob" parent="abstractJobPerformable"/>
+
+    <bean id="customCompositeJob" class="com.epam.training.cronJob.CustomCompositeJob" parent="compositeJobPerformable">
+        <property name="cronJobService" ref="cronJobService"/>
+    </bean>
 </beans>

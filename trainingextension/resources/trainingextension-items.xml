@@ -51,5 +51,16 @@
 				</attribute>
 			</attributes>
 		</itemtype>
+
+		<itemtype code="ImpexUploadCronJob" extends="CronJob" autocreate="true" generate="true">
+			<attributes>
+				<attribute qualifier="pathFolder" type="java.lang.String">
+					<modifiers read="true" write="true" search="true" optional="false"/>
+					<persistence type="property"/>
+				</attribute>
+			</attributes>
+		</itemtype>
+
+		<itemtype code="ThrowExceptionCronJob" extends="CronJob" autocreate="true" generate="true"/>
 	</itemtypes>
 </items>

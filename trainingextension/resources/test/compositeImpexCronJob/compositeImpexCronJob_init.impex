@@ -1,0 +1,29 @@
+INSERT_UPDATE ServicelayerJob ; code[unique=true]       ; springId
+                              ; impexUploadJob          ; impexUploadJob
+                              ; throwExceptionJob       ; throwExceptionJob
+                              ; compositeJobPerformable ; compositeJobPerformable
+                              ; customCompositeJob      ; customCompositeJob
+
+INSERT_UPDATE ImpexUploadCronJob ; code[unique=true]               ; job(code)      ; pathFolder                                                  ; sessionUser(uid)[default=admin] ; sessionLanguage(isocode)[default=en] ;
+                                 ; impexUploadServicelayerCronJob1 ; impexUploadJob ; resources/test/customImportService/forValid/forSingleFolder
+                                 ; impexUploadServicelayerCronJob2 ; impexUploadJob ; resources/test/customImportService/test
+                                 ; impexUploadServicelayerCronJob3 ; impexUploadJob ; resources/test/compositeImpexCronJob/test-data
+                                 ; impexUploadServicelayerCronJob4 ; impexUploadJob ; resources/test/customImportService/forValid/forSingleFolder
+                                 ; impexUploadServicelayerCronJob5 ; impexUploadJob ; resources/test/compositeImpexCronJob/test-data
+
+INSERT_UPDATE ThrowExceptionCronJob ; code[unique=true]                 ; job(code)         ; sessionUser(uid)[default=admin] ; sessionLanguage(isocode)[default=en]
+                                    ; throwExceptionServicelayerCronJob ; throwExceptionJob
+
+INSERT_UPDATE CompositeEntry ; code[unique=true]          ; executableCronJob(code)
+                             ; impexUploadCronJobEntry1   ; impexUploadServicelayerCronJob1
+                             ; impexUploadCronJobEntry2   ; impexUploadServicelayerCronJob2
+                             ; impexUploadCronJobEntry3   ; impexUploadServicelayerCronJob3
+                             ; impexUploadCronJobEntry4   ; impexUploadServicelayerCronJob4
+                             ; impexUploadCronJobEntry5   ; impexUploadServicelayerCronJob5
+                             ; throwExceptionCronJobEntry ; throwExceptionServicelayerCronJob
+
+INSERT_UPDATE CompositeCronJob ; code[unique=true]             ; job(code)          ; compositeEntries(code)                                                         ; sessionUser(uid)[default=admin] ; sessionLanguage(isocode)[default=en] ;
+                               ; impexUploadCompositeCronJob   ; customCompositeJob ; impexUploadCronJobEntry1, impexUploadCronJobEntry2, impexUploadCronJobEntry3   ;
+                               ; compositeCronJobWithException ; customCompositeJob ; impexUploadCronJobEntry4, throwExceptionCronJobEntry, impexUploadCronJobEntry5 ;
+
+

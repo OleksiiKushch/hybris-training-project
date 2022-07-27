@@ -16,4 +16,5 @@ public class TrainingextensionManager extends GeneratedTrainingextensionManager
 		ExtensionManager em = JaloSession.getCurrentSession().getExtensionManager();
 		return (TrainingextensionManager) em.getExtension(TrainingextensionConstants.EXTENSIONNAME);
 	}
+	
 }

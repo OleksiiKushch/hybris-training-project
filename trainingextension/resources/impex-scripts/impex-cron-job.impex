@@ -1,0 +1,8 @@
+INSERT_UPDATE ServicelayerJob ; code[unique=true] ; springId
+                              ; impexUploadJob    ; impexUploadJob
+
+INSERT_UPDATE ImpexUploadCronJob ; code[unique=true]              ; job(code)      ; pathFolder                                                  ; sessionUser(uid)[default=admin] ; sessionLanguage(isocode)[default=en] ;
+                                 ; impexUploadServicelayerCronJob ; impexUploadJob ; resources/test/customImportService/forValid/forSingleFolder
+
+INSERT_UPDATE Trigger ; cronJob(code)[unique=true]     ; cronExpression
+                      ; impexUploadServicelayerCronJob ; 0 0 0 * * ?

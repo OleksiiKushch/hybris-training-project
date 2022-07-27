@@ -15,5 +15,13 @@ public class FileSearcherTest extends TestCase {
 
         assertEquals(3, result1.size());
         assertEquals(0, result2.size());
+
+    }
+
+    public void testGetAllFiles_ifDirectoryNotExists() {
+        List<File> result = FileSearcher.getAllFiles(
+                new File("resources/test/customImportService/test"), "impex");
+
+        assertEquals(0, result.size());
     }
 }
