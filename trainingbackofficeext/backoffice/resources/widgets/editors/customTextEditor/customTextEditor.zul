@@ -1,0 +1,10 @@
+<widget xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://www.zkoss.org/2005/zul">
+    <style src="${wr}/default.css"/>
+    <div>
+        <hlayout>
+            <editor id="textEditor" type="java.lang.String"
+                    defaultEditor="org.trainingbackofficeext.editors.customtexteditor"/>
+        </hlayout>
+    </div>
+</widget>

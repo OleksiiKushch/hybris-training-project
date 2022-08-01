@@ -1,0 +1,10 @@
+<widget xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://www.zkoss.org/2005/zul">
+    <style src="${wr}/default.css"/>
+    <div>
+        <hlayout>
+            <textbox id="input" placeholder="Enter your data."/>
+            <button id="submit" label="Submit"/>
+        </hlayout>
+    </div>
+</widget>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<widget-definition id="org.trainingbackofficeext.widgets.limitedinputcontroller"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:noNamespaceSchemaLocation="http://www.hybris.com/schema/cockpitng/widget-definition.xsd">
+
+    <name>Custom Widget</name>
+    <description>My custom widget.</description>
+    <defaultTitle>Custom widget</defaultTitle>
+    <author>Oleksii Kushch</author>
+    <version>0.1</version>
+
+    <controller class="org.trainingbackofficeext.widgets.LimitedInputController"/>
+</widget-definition>
