@@ -30,7 +30,7 @@ public class ImpexUploadJob extends AbstractJobPerformable<ImpexUploadCronJobMod
             return new PerformResult(CronJobResult.FAILURE, CronJobStatus.FINISHED);
         }
         try {
-            customImportService.importAllImpexFilesFromFolder(pathFolder);
+            customImportService.importAllImpexFilesFromFolder(pathFolder, false);
         } catch (IllegalArgumentException exception) {
             LOG.warn(exception.getMessage());
             return new PerformResult(CronJobResult.FAILURE, CronJobStatus.FINISHED);
