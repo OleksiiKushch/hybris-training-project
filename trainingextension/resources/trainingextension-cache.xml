@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util.xsd"
+       default-lazy-init="true">
+
+    <alias name="productCacheRegion" alias="productCacheRegion"/>
+    <bean name="productCacheRegion" class="de.hybris.platform.regioncache.region.impl.EHCacheRegion">
+        <constructor-arg name="name" value="${trainingextension.productcache.name}"/>
+        <constructor-arg name="maxEntries" value="${trainingextension.productcache.maxEntries}" />
+        <constructor-arg name="evictionPolicy" value="${trainingextension.productcache.evictionpolicy}" />
+        <property name="handledTypes">
+            <array>
+                <value>1</value>
+            </array>
+        </property>
+    </bean>
+
+    <bean id="productCacheRegionRegistrar" class="de.hybris.platform.regioncache.region.CacheRegionRegistrar" c:region-ref="productCacheRegion" />
+</beans>
