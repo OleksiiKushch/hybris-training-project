@@ -1,0 +1,2 @@
+INSERT_UPDATE CustomEmailConstraint ; id[unique=true]        ; annotation                                         ; descriptor(enclosingType(code),qualifier)
+                                    ; CustomerEmailConstrain ; com.epam.training.constrain.annotation.CustomEmail ; Customer:uid

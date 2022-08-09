@@ -111,5 +111,29 @@
 				</attribute>
 			</attributes>
 		</itemtype>
+
+		<itemtype code="CustomEmailConstraint" autocreate="true" generate="true"
+				  extends="AttributeConstraint"
+				  jaloclass="com.epam.training.jalo.CustomEmailConstraint">
+			<description>
+				Custom email constraint which checks for length (from 3 to 8 by default) ant contains digits, upper chars, lower chars.
+			</description>
+			<attributes>
+				<attribute type="java.lang.Integer" qualifier="minLength">
+					<modifiers read="true" write="true" search="true" optional="false" initial="true" />
+					<defaultvalue>3</defaultvalue>
+					<persistence type="property" />
+				</attribute>
+				<attribute type="java.lang.Integer" qualifier="maxLength">
+					<modifiers read="true" write="true" search="true" optional="false" initial="true" />
+					<defaultvalue>8</defaultvalue>
+					<persistence type="property" />
+				</attribute>
+				<attribute qualifier="annotation" type="java.lang.Class" redeclare="true">
+					<modifiers write="false" initial="true" />
+					<defaultvalue>com.epam.training.constrain.annotation.CustomEmail.class</defaultvalue>
+				</attribute>
+			</attributes>
+		</itemtype>
 	</itemtypes>
 </items>
