@@ -1,0 +1,5 @@
+INSERT_UPDATE User ; uid[unique = true] ; name
+                   ; victor@gmail.com   ; Victor
+                   ; riko@epam.com      ; Riko
+                   ; artur@gmail.com    ; Artur
+                   ; bobber@hybhub.com  ; Bobber

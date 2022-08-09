@@ -1,0 +1,2 @@
+INSERT Address ; owner(User.uid)   ; shippingAddress ; billingAddress
+               ; bobber@hybhub.com ; true            ; true

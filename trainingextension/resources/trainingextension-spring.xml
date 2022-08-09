@@ -43,7 +43,7 @@
         </property>
     </bean>
 
-    <bean id="sedEmailToCustomerEventListener"
+    <bean id="sendEmailToCustomerEventListener"
           class="com.epam.training.listener.SendEmailToCustomerEventListener"
           parent="abstractEventListener">
     </bean>
@@ -56,5 +56,28 @@
 
     <bean id="customCompositeJob" class="com.epam.training.cronJob.CustomCompositeJob" parent="compositeJobPerformable">
         <property name="cronJobService" ref="cronJobService"/>
+    </bean>
+
+    <bean id="addressBusinessProcessDefinitionResource" class="de.hybris.platform.processengine.definition.ProcessDefinitionResource">
+        <property name="resource" value="classpath:/address-business-process.xml"/>
+    </bean>
+
+    <bean id="validateCreatedAddressAction" class="com.epam.training.actions.ValidateCreatedAddressAction"/>
+
+    <bean id="setBillingAddressAction" class="com.epam.training.actions.SetBillingAddressAction">
+        <property name="modelService" ref="modelService"/>
+    </bean>
+
+    <bean id="setDeliveryAddressAction" class="com.epam.training.actions.SetDeliveryAddressAction">
+        <property name="modelService" ref="modelService"/>
+    </bean>
+
+    <bean id="setBothAddressesAction" class="com.epam.training.actions.SetBothAddressesAction">
+        <property name="modelService" ref="modelService"/>
+    </bean>
+
+    <bean id="afterCreateAddressListener" class="com.epam.training.listener.AfterCreateAddressListener">
+        <property name="modelService" ref="modelService"/>
+        <property name="businessProcessService" ref="businessProcessService"/>
     </bean>
 </beans>

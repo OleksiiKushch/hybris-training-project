@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<process xmlns="http://www.hybris.de/xsd/processdefinition" name="addressBusinessProcess" start="validateCreatedAddressAction"
+        processClass="com.epam.training.model.AddressBusinessProcessModel">
+
+    <action id="validateCreatedAddressAction" bean="validateCreatedAddressAction">
+        <transition name="BILLING" to="setBillingAddressAction"/>
+        <transition name="DELIVERY" to="setDeliveryAddressAction"/>
+        <transition name="BOTH" to="setBothAddressesAction"/>
+        <transition name="NOTHING" to="nothing"/>
+    </action>
+
+    <action id="setBillingAddressAction" bean="setBillingAddressAction">
+        <transition name="OK" to="success"/>
+        <transition name="NOK" to="failed"/>
+    </action>
+
+    <action id="setDeliveryAddressAction" bean="setDeliveryAddressAction">
+        <transition name="OK" to="success"/>
+        <transition name="NOK" to="failed"/>
+    </action>
+
+    <action id="setBothAddressesAction" bean="setBothAddressesAction">
+        <transition name="OK" to="success"/>
+        <transition name="NOK" to="failed"/>
+    </action>
+
+    <end id="success" state="SUCCEEDED">Corresponding address has been set successfully</end>
+    <end id="nothing" state="SUCCEEDED">Nothing has been set, but it's fine</end>
+    <end id="failed" state="FAILED">Something went wrong</end>
+</process>
