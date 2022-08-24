@@ -27,6 +27,8 @@
       <css>/_ui/addons/orderselfserviceaddon/responsive/common/css/orderselfserviceaddon.css</css>
       <js>/_ui/addons/trainingaddonext/responsive/common/js/trainingaddonext.js</js>
       <css>/_ui/addons/trainingaddonext/responsive/common/css/trainingaddonext.css</css>
+      <js>/_ui/addons/cmstypesaddon/responsive/common/js/cmstypesaddon.js</js>
+      <css>/_ui/addons/cmstypesaddon/responsive/common/css/cmstypesaddon.css</css>
       <js>/_ui/addons/adaptivesearchsamplesaddon/responsive/common/js/adaptivesearchsamplesaddon.js</js>
       <css>/_ui/addons/adaptivesearchsamplesaddon/responsive/common/css/adaptivesearchsamplesaddon.css</css>
    </group>

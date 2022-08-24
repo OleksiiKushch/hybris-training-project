@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<items 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			xsi:noNamespaceSchemaLocation="items.xsd">
+
+	<itemtypes>
+		<itemtype code="Article" generate="true"
+				  jaloclass="com.epam.cmstypesaddon.jalo.Article"
+				  extends="CMSParagraphComponent" autocreate="true">
+			<description>CMS component which contains an image and paragraph of text. The text flow around the picture, which is located in the top left corner.</description>
+			<attributes>
+				<attribute qualifier="media" generate="true" autocreate="true" type="localized:Media">
+					<persistence type="property" />
+					<description>Attribute that stores the localized media of the paragraph.</description>
+				</attribute>
+			</attributes>
+		</itemtype>
+	</itemtypes>
+</items>
