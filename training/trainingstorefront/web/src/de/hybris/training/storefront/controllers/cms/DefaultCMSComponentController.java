@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Default Controller for CMS Component. This controller is used for all CMS components that don't have a specific
  * controller to handle them.
  */
+
 @Controller("DefaultCMSComponentController")
 @RequestMapping(value = ControllerConstants.Actions.Cms.DefaultCMSComponent)
 public class DefaultCMSComponentController extends AbstractAcceleratorCMSComponentController<AbstractCMSComponentModel>

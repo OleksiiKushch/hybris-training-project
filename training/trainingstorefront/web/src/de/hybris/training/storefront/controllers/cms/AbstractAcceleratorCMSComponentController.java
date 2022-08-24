@@ -10,6 +10,7 @@
  */
 package de.hybris.training.storefront.controllers.cms;
 
+import de.hybris.platform.acceleratorcms.model.components.SearchBoxComponentModel;
 import de.hybris.platform.acceleratorstorefrontcommons.controllers.cms.AbstractCMSComponentController;
 import de.hybris.platform.cms2.model.contents.components.AbstractCMSComponentModel;
 import de.hybris.training.storefront.controllers.ControllerConstants;
