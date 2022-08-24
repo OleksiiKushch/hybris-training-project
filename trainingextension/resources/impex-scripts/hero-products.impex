@@ -1,0 +1,7 @@
+$productCode=3595723
+$globalSearchConfiguration=a1f13354-3109-4ee1-a6e6-33558a6b98df
+$brandSearchConfiguration=4f4281c4-4f37-4682-96af-dfb2ef6fed8e
+$catalogVersion=catalogVersion(catalog(id[default='electronicsProductCatalog']),version[default='Online'])
+
+INSERT_UPDATE AsPromotedItem ; uid[unique=true] ; uniqueIdx[unique=true] ; searchConfiguration(uid,$catalogVersion)[unique=true] ; item(Product.code,Product.$catalogVersion)[unique=true] ; $catalogVersion[unique=true]
+                             ; SomeUid          ; searchConfPK_itemPK    ; $brandSearchConfiguration                             ; $productCode                                            ;
