@@ -1,0 +1,34 @@
+INSERT_UPDATE PromotionSourceRule ; code[unique=true]                          ; name[lang=en]                       ; priority ; ruleGroup(code)         ; website(Identifier) ; status(code) ; conditions ; actions ; messageFired[lang=en]
+                                  ; custom_order_threshold_percentage_discount ; "5% Discount for Cart Over $500.00" ; 500      ; orderPromotionRuleGroup ; electronicsPromoGrp ; PUBLISHED    ; "[
+  {
+    ""definitionId"": ""y_cart_total"",
+    ""parameters"": {
+      ""value"": {
+        ""uuid"": ""0472c08a-3a9a-4696-aba1-9e044d540a49"",
+        ""type"": ""Map(ItemType(Currency),java.math.BigDecimal)"",
+        ""value"": {
+          ""USD"": 500
+        }
+      },
+      ""operator"": {
+        ""uuid"": ""ff8d6f47-d08b-41a4-8eac-86168d132da3"",
+        ""type"": ""Enum(de.hybris.platform.ruledefinitions.AmountOperator)"",
+        ""value"": ""GREATER_THAN_OR_EQUAL""
+      }
+    },
+    ""children"": []
+  }
+]";"[
+   {
+      ""definitionId"": ""y_order_percentage_discount"",
+      ""parameters"": {
+         ""value"": {
+            ""uuid"": ""3ae37229-4a94-4aba-821b-aaf640c19423"",
+            ""type"": ""java.math.BigDecimal"",
+            ""value"": 5
+         }
+      }
+   }
+]";"Buy over {0472c08a-3a9a-4696-aba1-9e044d540a49} get {3ae37229-4a94-4aba-821b-aaf640c19423}% discount on cart.";
+
+
