@@ -10,6 +10,7 @@
  */
 package com.epam.trainingcommercewebservice.v2.controller;
 
+import com.epam.trainingcommercewebservice.order.OrderListWsDTO;
 import de.hybris.platform.commercefacades.order.OrderFacade;
 import de.hybris.platform.commercefacades.order.data.OrderData;
 import de.hybris.platform.commercefacades.order.data.OrderHistoriesData;
@@ -140,6 +141,15 @@ public class OrdersController extends BaseCommerceController
 		setTotalCountHeader(response, orderHistoryList.getPagination());
 
 		return orderHistoryList;
+	}
+
+
+	@Secured({"ROLE_CUSTOMERGROUP", "ROLE_TRUSTED_CLIENT", "ROLE_CUSTOMERMANAGERGROUP"})
+	@RequestMapping(value = "/users/{userId}/orders", method = RequestMethod.GET, produces = "application/vnd.adws.api.v2+json")
+	@ResponseBody
+	@ApiBaseSiteIdAndUserIdParam
+	public OrderListWsDTO getOrdersForUserV2(@RequestParam(defaultValue = DEFAULT_FIELD_SET) final String fields) {
+		return ordersHelper.searchOrders(fields);
 	}
 
 

@@ -152,4 +152,7 @@
 		          type="java.util.List&lt;com.epam.trainingcommercewebservice.queues.data.OrderStatusUpdateElementData>"/>
 	</bean>
 
+	<bean class="com.epam.trainingcommercewebservice.order.OrderListWsDTO">
+		<property name="orders" type="java.util.List&lt;de.hybris.platform.commercewebservicescommons.dto.order.OrderWsDTO>"/>
+	</bean>
 </beans>

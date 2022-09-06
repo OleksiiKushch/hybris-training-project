@@ -10,16 +10,21 @@
  */
 package com.epam.trainingcommercewebservice.v2.helper;
 
-import de.hybris.platform.commercefacades.order.OrderFacade;
+import com.epam.training.facade.CustomOrderFacade;
+import com.epam.trainingcommercewebservice.order.OrderListWsDTO;
+
+import de.hybris.platform.commercefacades.order.data.OrderData;
 import de.hybris.platform.commercefacades.order.data.OrderHistoriesData;
 import de.hybris.platform.commercefacades.order.data.OrderHistoryData;
 import de.hybris.platform.commerceservices.search.pagedata.PageableData;
 import de.hybris.platform.commerceservices.search.pagedata.SearchPageData;
 import de.hybris.platform.commercewebservicescommons.dto.order.OrderHistoryListWsDTO;
+import de.hybris.platform.commercewebservicescommons.dto.order.OrderWsDTO;
 import de.hybris.platform.core.enums.OrderStatus;
 import com.epam.trainingcommercewebservice.constants.YcommercewebservicesConstants;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.annotation.Resource;
@@ -32,7 +37,7 @@ import org.springframework.stereotype.Component;
 public class OrdersHelper extends AbstractHelper
 {
 	@Resource(name = "orderFacade")
-	private OrderFacade orderFacade;
+	private CustomOrderFacade orderFacade;
 
 	@Cacheable(value = "orderCache", key = "T(de.hybris.platform.commercewebservicescommons.cache.CommerceCacheKeyGenerator).generateKey(true,true,'DTO',#statuses,#currentPage,#pageSize,#sort,#fields)")
 	public OrderHistoryListWsDTO searchOrderHistory(final String statuses, final int currentPage, final int pageSize,
@@ -83,5 +88,13 @@ public class OrdersHelper extends AbstractHelper
 		orderHistoriesData.setPagination(result.getPagination());
 
 		return orderHistoriesData;
+	}
+
+	public OrderListWsDTO searchOrders(String fields) {
+		List<OrderData> orders = orderFacade.getOrders();
+		List<OrderWsDTO> orderWsDTOS = getDataMapper().mapAsList(orders, OrderWsDTO.class, fields);
+		OrderListWsDTO orderListWsDTO = new OrderListWsDTO();
+		orderListWsDTO.setOrders(orderWsDTOS);
+		return orderListWsDTO;
 	}
 }

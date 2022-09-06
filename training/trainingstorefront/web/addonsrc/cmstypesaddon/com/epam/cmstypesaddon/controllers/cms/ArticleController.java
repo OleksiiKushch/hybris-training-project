@@ -22,12 +22,6 @@ public class ArticleController extends AbstractAcceleratorCMSComponentController
     @Resource(name = "modelService")
     private ModelService modelService;
 
-    public void setModelService(final ModelService modelService)
-    {
-        this.modelService = modelService;
-    }
-
-
     @Override
     protected void fillModel(HttpServletRequest request, Model model, ArticleModel component) {
         for (final String property : getCmsComponentService().getReadableEditorProperties(component)) {
@@ -45,5 +39,4 @@ public class ArticleController extends AbstractAcceleratorCMSComponentController
     protected String getView(final ArticleModel component) {
         return ADDON_PREFIX + ControllerConstants.Views.Cms.ComponentPrefix + StringUtils.lowerCase(getTypeCode(component));
     }
-
 }

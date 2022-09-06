@@ -80,4 +80,7 @@
         <property name="modelService" ref="modelService"/>
         <property name="businessProcessService" ref="businessProcessService"/>
     </bean>
+
+    <alias name="customOrderFacade" alias="orderFacade" />
+    <bean id="customOrderFacade" class="com.epam.training.facade.impl.CustomOrderFacadeImpl" parent="defaultOrderFacade" />
 </beans>

@@ -1,3 +1,4 @@
 <div class="content">
-    <p>Test</p>
+    <img style="float: left;" src="${media.url}" alt="${media.altText}"/>
+    ${content}
 </div>
